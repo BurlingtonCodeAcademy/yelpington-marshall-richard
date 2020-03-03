@@ -1,18 +1,38 @@
-<script>
-let name = document.location.pathname.slice(1);
+<!DOCTYPE html>
+<html lang="en">
 
-if (!name) {
-  console.log("no place name specfied");
-} else {
-  console.log("fetching place named '" + name + "'");
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+  <title>VCET FOOD FINDER!</title>
+  <!-- Using Font Awesome for the double arrow on the expandable bottom div -->
+  <script src="https://kit.fontawesome.com/3790183da0.js"></script>
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.3.1/dist/leaflet.css" />
+  <link rel="stylesheet" href="style.css" />
+  <script src="https://unpkg.com/leaflet@1.3.1/dist/leaflet.js"></script>
+</head>
 
-  fetch(name + '.json')
-    .then(function (response) {
-      return response.text();
-    })
-    .then(function (myText) {
-      console.log(myText);
-    });
-}
+<body>
+  <header>
+    <h1>VCET FOOD FINDER!</h1>
+  </header>
 
-</script>
+  <!-- Contains the map elements -->
+  <section class="map-container">
+    <div id="map"></div>
+  </section>
+
+  <!-- The expandable div used on both pages to contain restaurant information -->
+  <aside class="expandable">
+    <!-- Using shift-down to match styles between index and restaurant pages. -->
+    <h1 class="shift-down">LUNCH SPOTS! </h1>
+    <i class="fas fa-angle-double-up"></i>
+    <!-- Contains the list of all the restaurants -->
+    <section id="restaurant-list"></section>
+  </aside>
+
+  <script src="script.js"></script>
+</body>
+
+</html>
